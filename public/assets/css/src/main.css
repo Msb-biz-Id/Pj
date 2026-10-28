@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pusat Jersey — Editorial Minimal (anti AI-slop) */
+:root {
+    --color-primary: #0f766e;
+    --color-secondary: #0f172a;
+    --color-accent: #c2410c;
+    --color-cta-wa: #15803d;
+    --color-bg: #ffffff;
+    --color-surface: #ffffff;
+    --color-surface-alt: #f8fafc;
+    --color-text: #0f172a;
+    --color-text-muted: #475569;
+    --color-text-faint: #64748b; /* ditingkatkan dari #94a3b8 agar lolos WCAG AA (4.5:1) di bg putih */
+    --color-border: #e7ecf1;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-fast: 150ms;
+    --duration-base: 220ms;
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+}
+
+.dark {
+    --color-bg: #0b0f14;
+    --color-surface: #11161d;
+    --color-surface-alt: #151c24;
+    --color-text: #f1f5f9;
+    --color-text-muted: #b6c0cc;
+    --color-text-faint: #7b8794;
+    --color-border: #223041;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+}
+
+::selection { background: var(--color-text); color: var(--color-bg); }
+
+@layer components {
+
+    /* Layout */
+    .shell { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+    .section { @apply py-14 sm:py-20; }
+    .rule { @apply border-t border-line; }
+
+    /* Type */
+    .eyebrow { @apply flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-faint; }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--color-text); opacity: .35; display: inline-block; }
+    .display { @apply font-heading font-semibold tracking-tight text-ink; font-size: clamp(1.9rem, 4.2vw, 3rem); line-height: 1.08; }
+    .h-section { @apply font-heading font-semibold tracking-tight text-ink text-[1.55rem] leading-[1.15] sm:text-[1.9rem]; }
+    .lede { @apply mt-3 max-w-2xl text-[15px] leading-relaxed text-muted; }
+    .meta { @apply text-[12px] leading-relaxed text-faint; }
+
+    /* Focus ring eksplisit untuk navigasi keyboard (a11y) */
+    :focus-visible {
+        outline: 2px solid var(--color-text);
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+    .section-title { @apply font-heading font-semibold tracking-tight text-ink text-[1.55rem] leading-[1.15] sm:text-[1.9rem]; }
+    .section-lede { @apply mt-3 max-w-2xl text-[15px] leading-relaxed text-muted; }
+
+    /* Buttons */
+    .btn { @apply inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-[13.5px] font-semibold leading-none transition-all duration-200 select-none; }
+
+    .btn:active { transform: translateY(1px); }
+    .btn-primary { @apply btn bg-ink text-[var(--color-bg)] hover:opacity-85; }
+    .btn-brand { background: var(--color-primary); @apply btn text-white hover:brightness-110; }
+    .btn-outline { @apply btn border border-line bg-transparent text-ink; }
+    .btn-outline:hover { border-color: var(--color-text); }
+    .btn-wa { background: var(--color-cta-wa); @apply btn text-white hover:brightness-110; }
+    .btn-cta-wa { @apply btn-wa; }
+    .btn-sm { @apply h-9 px-4 text-[12.5px]; }
+    .icon-btn { @apply grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition-colors hover:text-ink; }
+
+    /* Chips + cards */
+    .badge { @apply inline-flex items-center gap-1.5 rounded-full border border-line px-2.5 py-1 text-[11px] font-medium text-muted; }
+    .badge-primary { @apply bg-surface-alt text-ink; }
+    .chip { @apply inline-flex h-9 items-center rounded-full border border-line bg-surface px-4 text-[12.5px] font-medium text-muted transition-colors hover:text-ink; }
+    .tag { @apply inline-flex items-center gap-1 rounded-full bg-surface-alt border border-line px-2.5 py-1 text-[11px] font-medium text-muted; }
+    .card { @apply rounded-[20px] border border-line bg-surface overflow-hidden transition-colors duration-200; }
+    .card:hover { border-color: var(--color-text-muted); }
+    .card-hover:hover { border-color: var(--color-text-muted); }
+    .card-media { @apply relative overflow-hidden bg-surface-alt; }
+    .card-body { @apply flex flex-col gap-1.5 p-5; }
+    .card-title { @apply font-heading text-[15.5px] font-semibold leading-snug text-ink; }
+    .card-meta { @apply text-[11px] font-medium uppercase tracking-[0.1em] text-faint; }
+    .card-foot { @apply flex items-center justify-between border-t border-line px-5 py-3; }
+    .price { @apply font-heading text-[17px] font-semibold tracking-tight text-ink tabular-nums; }
+    .price-strike { @apply text-[12px] text-faint line-through tabular-nums; }
+    .mono-label { @apply font-mono text-[11px] uppercase tracking-[0.14em] text-faint; }
+    .stat-num { @apply font-heading font-semibold tracking-tight text-ink tabular-nums; }
+    .field { @apply block w-full rounded-[10px] border border-line bg-surface px-4 py-3 text-sm text-ink placeholder:text-faint outline-none transition-colors; }
+    .link-quiet { @apply inline-flex items-center gap-1.5 text-sm font-medium text-ink underline-offset-4 hover:underline; }
+    .link-muted { @apply inline-flex items-center gap-1.5 text-sm text-muted transition-colors duration-200 hover:text-ink; }
+    .link-more { @apply inline-flex items-center gap-1.5 whitespace-nowrap text-[13px] font-semibold text-ink transition-colors hover:text-primary; }
+    .link-more svg { @apply transition-transform duration-200 group-hover:translate-x-0.5; }
+    .prose { --tw-prose-body: var(--color-text-muted); --tw-prose-headings: var(--color-text); }
+}
+    /* Editorial extras */
+    label.lbl { @apply mb-1.5 block text-[12px] font-semibold text-ink; }
+    .prose-pj { @apply text-[15px] leading-[1.8] text-muted; }
+    .prose-pj h2 { @apply font-heading mt-8 mb-3 text-xl font-semibold text-ink tracking-tight; }
+    .prose-pj h3 { @apply font-heading mt-6 mb-2 text-base font-semibold text-ink; }
+    .prose-pj p { @apply mb-4; }
+    .prose-pj ul { @apply mb-4 ml-5 list-disc space-y-1.5; }
+    .prose-pj ol { @apply mb-4 ml-5 list-decimal space-y-1.5; }
+    .prose-pj a { @apply text-ink underline underline-offset-4; }
+    .prose-pj img { @apply my-6 rounded-[14px] border border-line; }
+    .prose-pj blockquote { @apply my-5 border-l-2 pl-4 italic; }

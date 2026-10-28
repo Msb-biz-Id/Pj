@@ -1,0 +1,25 @@
+{
+    "name": "pusatjersey-ci",
+    "version": "1.0.0",
+    "description": "CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure. More information can be found at the [official site](https://codeigniter.com).",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "watch": "tailwindcss -i ./public/assets/css/src/main.css -o ./public/assets/css/app.min.css --watch",
+        "build": "tailwindcss -i ./public/assets/css/src/main.css -o ./public/assets/css/app.min.css --minify"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "autoprefixer": "^10.5.4",
+        "postcss": "^8.5.26",
+        "tailwindcss": "^3.4.19"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.20"
+    }
+}
