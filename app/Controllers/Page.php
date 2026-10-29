@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\FaqModel;
+use App\Models\ProductModel;
+use App\Models\ServiceModel;
 
 class Page extends BaseController
 {
@@ -47,21 +49,12 @@ class Page extends BaseController
     /**
      * Halaman Bio (/bio) — profil singkat perusahaan dari data dinamis admin
      * (settings group `about` + `brand`), bukan hardcode.
+     * Layout mandiri tanpa navbar/footer: app/Views/layouts/bio.php
      */
     public function bio(): string
     {
         $about = $this->settings['about'];
         $brand = $this->settings['brand'];
-
-        // Data untuk bio mobile: list layanan + slider produk.
-        $services = (new \App\Models\ServiceModel())
-            ->where('status', 'published')
-            ->orderBy('created_at', 'DESC')
-            ->findAll(6);
-        $products = (new \App\Models\ProductModel())
-            ->where('status', 'published')
-            ->orderBy('created_at', 'DESC')
-            ->findAll(8);
 
         $seo = [
             'meta_title'       => 'Bio & Profil ' . $brand['name'],
@@ -75,7 +68,50 @@ class Page extends BaseController
             'faqs' => [],
         ];
 
-        return $this->renderView('pages/bio', ['services' => $services, 'products' => $products], $seo);
+        $data = [
+            'metaTitle' => $seo['meta_title'],
+            'metaDesc'  => $seo['meta_description'],
+            'canonical' => current_url(),
+        ];
+
+        return $this->renderStandaloneView('pages/bio', $data, $seo);
+    }
+
+    /**
+     * Fragment HTMX load-more untuk /bio (AJAX tanpa reload).
+     * type=products|services, offset, limit.
+     */
+    public function bioItems()
+    {
+        $type   = (string) $this->request->getGet('type');
+        $offset = max(0, (int) ($this->request->getGet('offset') ?? 0));
+        $limit  = min(24, max(1, (int) ($this->request->getGet('limit') ?? 6)));
+
+        $items = [];
+        $total = 0;
+
+        if ($type === 'products') {
+            $model = new ProductModel();
+            $total = $model->countPublished();
+            $items = $model->select('products.*, categories.name as category_name')
+                ->join('categories', 'categories.id = products.category_id', 'left')
+                ->where('products.status', 'published')
+                ->orderBy('products.created_at', 'DESC')
+                ->findAll($limit, $offset);
+        } elseif ($type === 'services') {
+            $model = new ServiceModel();
+            $total = (int) $model->builder()->where('status', 'published')->countAllResults();
+            $items = $model->where('status', 'published')
+                ->orderBy('created_at', 'DESC')
+                ->findAll($limit, $offset);
+        }
+
+        return view('pages/_bio_items', [
+            'bioType'  => $type,
+            'bioItems' => $items,
+            'bioTotal' => $total,
+            'bioNext'  => $offset + count($items),
+        ]);
     }
 
     public function contact(): string

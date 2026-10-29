@@ -13,6 +13,7 @@ $routes->get('/', 'Home::index');
 // Halaman Statis Informasi (sesuai BRD: tentang-kami & kontak)
 $routes->get('tentang-kami', 'Page::about');
 $routes->get('bio', 'Page::bio');
+$routes->get('bio/items', 'Page::bioItems');
 $routes->get('kontak', 'Page::contact');
 $routes->post('kontak/send', 'Page::sendContactForm');
 

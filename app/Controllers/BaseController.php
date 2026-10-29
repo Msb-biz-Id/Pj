@@ -99,6 +99,36 @@ abstract class BaseController extends Controller
     }
 
     /**
+     * Render view dengan layout mandiri (tanpa navbar/footer) — dipakai /bio
+     * yang berdiri sendiri sebagai halaman profil mandiri.
+     */
+    protected function renderStandaloneView(string $viewName, array $data = [], array $seoData = []): string
+    {
+        $data['settings'] = $this->settings;
+        $data['isHtmx']  = $this->isHtmx;
+        $data['isBoosted'] = $this->isBoosted;
+
+        $metaTitle = $seoData['meta_title'] ?? $data['metaTitle'] ?? ($this->settings['brand']['name'] . ' — ' . $this->settings['brand']['tagline']);
+        $metaDesc  = $seoData['meta_description'] ?? $data['metaDesc'] ?? $this->settings['about']['short_desc'];
+        $canonical = $seoData['canonical'] ?? $data['canonical'] ?? current_url();
+
+        $data['metaTitle'] = $metaTitle;
+        $data['metaDesc']  = $metaDesc;
+        $data['canonical'] = $canonical;
+
+        $schemas = generate_schema_jsonld($this->settings['brand'], $this->settings['contact'], $seoData);
+        $extra   = $data['extraSchemas'] ?? [];
+        if (is_array($extra)) {
+            $schemas = array_merge($schemas, $extra);
+        }
+        $data['schemaJsonLd'] = $schemas;
+
+        $data['contentView'] = view($viewName, $data);
+
+        return view('layouts/bio', $data);
+    }
+
+    /**
      * Render admin view with SSR / HTMX dual mode logic.
      */
     protected function renderAdminView(string $viewName, array $data = []): string

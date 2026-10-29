@@ -155,15 +155,34 @@ final class SmokeTest extends CIUnitTestCase
         // Data dinamis dari settings (about_short_desc + visi/misi dari seeder, bukan hardcode view).
         $this->assertStringContainsString('Pusat konveksi &amp; cetak custom jersey', $body, 'Data settings about tidak tampil di /bio');
         $this->assertStringContainsString('produsen jersey custom', $body, 'Visi dari settings tidak tampil di /bio');
-        $this->assertStringContainsString('Visi', $body);
-        $this->assertStringContainsString('Misi', $body);
         // UI mobile-only: sticky action bar + slider snap.
         $this->assertStringContainsString('fixed inset-x-0 bottom-0', $body, 'Sticky bar mobile tidak ada');
         $this->assertStringContainsString('snap-x snap-mandatory', $body, 'Slider produk bio tidak ada');
-        // List layanan & produk dari DB.
-        $this->assertStringContainsString('/layanan/', $body, 'List layanan bio tidak ada');
-        $this->assertStringContainsString('/produk/', $body, 'Slider produk bio tidak ada');
+        // Tanpa navbar & footer (layout mandiri).
+        $this->assertStringNotContainsString('sticky top-0 z-40', $body, 'Navbar masih muncul di /bio');
+        $this->assertStringNotContainsString('<footer', $body, 'Footer masih muncul di /bio');
+        // Media sosial dari settings social_links_json.
+        $this->assertStringContainsString('Media Sosial', $body, 'Blok media sosial tidak ada di /bio');
+        $this->assertStringContainsString('instagram.com', $body, 'Link Instagram tidak ada di /bio');
+        // Muat via AJAX (HTMX), bukan render awal.
+        $this->assertStringContainsString('bio/items', $body, 'Endpoint load-more bio tidak dipakai');
     }
+
+    /** Fragment load-more /bio: link internal WAJIB target=_blank. */
+    public function testBioItemsFragmentLinksOpenNewTab(): void
+    {
+        $result = $this->get('/bio/items?type=products&offset=0&limit=6');
+        $result->assertOK();
+
+        $body = $result->response()->getBody();
+        $this->assertStringContainsString('<article', $body, 'Fragment produk kosong');
+        $this->assertSame(
+            substr_count($body, 'target="_blank"'),
+            substr_count($body, '<article') * 2,
+            'Setiap kartu produk harus punya 2 link target="_blank"'
+        );
+    }
+
 
     /** Viewer log backend: wajib login & merender daftar entri log. */
     public function testAdminLogViewerRequiresAuthAndRenders(): void
