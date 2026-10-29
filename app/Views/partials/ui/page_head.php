@@ -1,6 +1,7 @@
 <?php
 // Header halaman arsip: angka + judul + deskripsi, satu pola untuk semua index.
-$stats = $stats ?? [];
+// Guard: view data CI4 di-merge antar view() — $stats bisa terkontaminasi key lain.
+$stats = is_array($stats ?? null) ? array_filter($stats, static fn ($s) => is_array($s) && isset($s['label'], $s['value'])) : [];
 ?>
 <header class="border-b border-line">
   <div class="shell py-12 sm:py-16" data-reveal>

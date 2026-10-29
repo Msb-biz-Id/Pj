@@ -25,6 +25,7 @@ class Sitemap extends BaseController
         $urls[] = ['loc' => base_url('portofolio'), 'changefreq' => 'weekly', 'priority' => '0.8'];
         $urls[] = ['loc' => base_url('blog'), 'changefreq' => 'weekly', 'priority' => '0.8'];
         $urls[] = ['loc' => base_url('tentang-kami'), 'changefreq' => 'yearly', 'priority' => '0.5'];
+        $urls[] = ['loc' => base_url('bio'), 'changefreq' => 'yearly', 'priority' => '0.5'];
         $urls[] = ['loc' => base_url('kontak'), 'changefreq' => 'yearly', 'priority' => '0.5'];
 
         // Services + Geo-Location Pages

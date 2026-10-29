@@ -126,6 +126,51 @@ final class SmokeTest extends CIUnitTestCase
         $this->getPage('/blog/' . self::POST_SLUG)->assertOK();
     }
 
+    /** View error 404/400/403/500/production wajib memakai shell branded (bukan template bawaan CI). */
+    public function testCustomErrorViewsAreBranded(): void
+    {
+        $views = [
+            'errors/html/error_404'     => 'Halaman tidak ditemukan',
+            'errors/html/error_400'     => 'Permintaan tidak valid',
+            'errors/html/error_403'     => 'Akses ditolak',
+            'errors/html/error_500'     => 'Terjadi kesalahan server',
+            'errors/html/production'    => 'Terjadi kesalahan server',
+        ];
+
+        foreach ($views as $view => $expectedTitle) {
+            $html = view($view, ['code' => 404, 'message' => 'x']);
+            $this->assertStringContainsString($expectedTitle, $html, "Judul error custom hilang di {$view}");
+            $this->assertStringContainsString('btn-outline', $html, "Shell branded tidak dipakai di {$view}");
+            $this->assertStringContainsString('noindex', $html, "Halaman error wajib noindex ({$view})");
+        }
+    }
+
+    /** Halaman /bio menampilkan data dinamis dari settings (group about + brand). */
+    public function testBioPageShowsDynamicData(): void
+    {
+        $result = $this->getPage('/bio');
+        $result->assertOK();
+
+        $body = $result->response()->getBody();
+        $this->assertStringContainsString('Profil Singkat', $body, 'Bagian profil bio tidak muncul');
+        // Judul about berasal dari seeder (settings dinamis, bukan hardcode di view).
+        $this->assertStringContainsString('Tentang Pusat Jersey Indonesia', $body, 'Data settings about tidak tampil di /bio');
+        $this->assertStringContainsString('Visi', $body);
+        $this->assertStringContainsString('Misi', $body);
+    }
+
+    /** Viewer log backend: wajib login & merender daftar entri log. */
+    public function testAdminLogViewerRequiresAuthAndRenders(): void
+    {
+        $this->get('/admin/logs')->assertRedirect();
+
+        $result = $this->actingAsAdmin()->get('/admin/logs');
+        $result->assertOK();
+        $body = $result->response()->getBody();
+        $this->assertStringContainsString('Log Error Sistem', $body, 'Judul halaman log tidak muncul');
+        $this->assertStringContainsString('log-entries', $body, 'Kontainer entri log tidak ada');
+    }
+
     public function testPartnerSliderShowsOnHomeAndAbout(): void
     {
         $home = $this->getPage('/');

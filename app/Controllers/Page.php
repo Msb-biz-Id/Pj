@@ -44,6 +44,30 @@ class Page extends BaseController
         return $this->renderView('pages/about', ['faqs' => $faqs, 'extraSchemas' => $extraSchemas], $seo);
     }
 
+    /**
+     * Halaman Bio (/bio) — profil singkat perusahaan dari data dinamis admin
+     * (settings group `about` + `brand`), bukan hardcode.
+     */
+    public function bio(): string
+    {
+        $about = $this->settings['about'];
+        $brand = $this->settings['brand'];
+
+        $seo = [
+            'meta_title'       => 'Bio & Profil ' . $brand['name'],
+            'meta_description' => $about['short_desc'] !== ''
+                ? $about['short_desc']
+                : 'Profil singkat ' . $brand['name'] . ' — ' . $brand['tagline'],
+            'breadcrumbs' => [
+                ['name' => 'Beranda', 'url' => '/'],
+                ['name' => 'Bio', 'url' => '/bio'],
+            ],
+            'faqs' => [],
+        ];
+
+        return $this->renderView('pages/bio', [], $seo);
+    }
+
     public function contact(): string
     {
         $contact = $this->settings['contact'];

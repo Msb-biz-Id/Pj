@@ -184,6 +184,7 @@
             <div class="space-y-1">
                 <span class="mono-label px-3 text-[10px] block mb-2">01 · IKHTISAR & SISTEM</span>
                 <?= $navItem('admin/dashboard', 'Dashboard Ringkasan', 'layout-dashboard', 'admin/dashboard') ?>
+                <?= $navItem('admin/logs', 'Log Error Sistem', 'list', 'admin/logs') ?>
                 <?= $navItem('admin/settings', 'Pengaturan Brand', 'sliders', 'admin/settings') ?>
                 <?= $navItem('admin/sections', 'Page Builder Home', 'layers', 'admin/sections') ?>
             </div>

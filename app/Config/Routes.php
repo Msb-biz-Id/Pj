@@ -12,6 +12,7 @@ $routes->get('/', 'Home::index');
 
 // Halaman Statis Informasi (sesuai BRD: tentang-kami & kontak)
 $routes->get('tentang-kami', 'Page::about');
+$routes->get('bio', 'Page::bio');
 $routes->get('kontak', 'Page::contact');
 $routes->post('kontak/send', 'Page::sendContactForm');
 
@@ -63,6 +64,9 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     // --- Settings Engine (Brand, Theme, Contact) ---
     $routes->get('settings', 'Admin\Settings::index');
     $routes->post('settings/update', 'Admin\Settings::update');
+
+    // --- Log Error Sistem (viewer dinamis writable/logs/*.log) ---
+    $routes->get('logs', 'Admin\Logs::index');
 
     // --- Page Builder Sections ---
     $routes->get('sections', 'Admin\Sections::index');

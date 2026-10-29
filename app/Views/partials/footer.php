@@ -11,6 +11,7 @@ $footerNav = [
     ['label' => 'Portofolio', 'url' => '/portofolio'],
     ['label' => 'Blog & Tips', 'url' => '/blog'],
     ['label' => 'Tentang Kami', 'url' => '/tentang-kami'],
+    ['label' => 'Bio Perusahaan', 'url' => '/bio'],
     ['label' => 'Kontak', 'url' => '/kontak'],
 ];
 ?>
