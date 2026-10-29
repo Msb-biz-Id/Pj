@@ -145,18 +145,24 @@ final class SmokeTest extends CIUnitTestCase
         }
     }
 
-    /** Halaman /bio menampilkan data dinamis dari settings (group about + brand). */
+    /** Halaman /bio: UI khusus mobile-only, data dinamis, plus list layanan & slider produk. */
     public function testBioPageShowsDynamicData(): void
     {
         $result = $this->getPage('/bio');
         $result->assertOK();
 
         $body = $result->response()->getBody();
-        $this->assertStringContainsString('Profil Singkat', $body, 'Bagian profil bio tidak muncul');
-        // Judul about berasal dari seeder (settings dinamis, bukan hardcode di view).
-        $this->assertStringContainsString('Tentang Pusat Jersey Indonesia', $body, 'Data settings about tidak tampil di /bio');
+        // Data dinamis dari settings (about_short_desc + visi/misi dari seeder, bukan hardcode view).
+        $this->assertStringContainsString('Pusat konveksi &amp; cetak custom jersey', $body, 'Data settings about tidak tampil di /bio');
+        $this->assertStringContainsString('produsen jersey custom', $body, 'Visi dari settings tidak tampil di /bio');
         $this->assertStringContainsString('Visi', $body);
         $this->assertStringContainsString('Misi', $body);
+        // UI mobile-only: sticky action bar + slider snap.
+        $this->assertStringContainsString('fixed inset-x-0 bottom-0', $body, 'Sticky bar mobile tidak ada');
+        $this->assertStringContainsString('snap-x snap-mandatory', $body, 'Slider produk bio tidak ada');
+        // List layanan & produk dari DB.
+        $this->assertStringContainsString('/layanan/', $body, 'List layanan bio tidak ada');
+        $this->assertStringContainsString('/produk/', $body, 'Slider produk bio tidak ada');
     }
 
     /** Viewer log backend: wajib login & merender daftar entri log. */

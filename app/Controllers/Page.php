@@ -53,6 +53,16 @@ class Page extends BaseController
         $about = $this->settings['about'];
         $brand = $this->settings['brand'];
 
+        // Data untuk bio mobile: list layanan + slider produk.
+        $services = (new \App\Models\ServiceModel())
+            ->where('status', 'published')
+            ->orderBy('created_at', 'DESC')
+            ->findAll(6);
+        $products = (new \App\Models\ProductModel())
+            ->where('status', 'published')
+            ->orderBy('created_at', 'DESC')
+            ->findAll(8);
+
         $seo = [
             'meta_title'       => 'Bio & Profil ' . $brand['name'],
             'meta_description' => $about['short_desc'] !== ''
@@ -65,7 +75,7 @@ class Page extends BaseController
             'faqs' => [],
         ];
 
-        return $this->renderView('pages/bio', [], $seo);
+        return $this->renderView('pages/bio', ['services' => $services, 'products' => $products], $seo);
     }
 
     public function contact(): string
