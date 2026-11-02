@@ -7,7 +7,7 @@ $lede = $settingsJson['lede'] ?? 'Panduan bahan, sizing, dan perawatan jersey â€
   <div class="shell">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <?= view('partials/ui/section_head', ['eyebrow' => 'Blog', 'title' => $title, 'lede' => $lede]) ?>
-      <a href="/blog" class="link-more">Semua artikel <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+      <a href="/blog" class="link-more">Semua artikel <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
     </div>
     <div class="mt-8 grid gap-5 md:grid-cols-3">
       <?php if (!empty($posts)): ?>

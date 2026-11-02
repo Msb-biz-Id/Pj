@@ -235,9 +235,40 @@
             </div>
         </div>
 
+        <!-- Google Analytics 4 & Search Console -->
+        <div class="card p-6 sm:p-8 space-y-5">
+            <div class="flex items-center justify-between border-b border-line pb-4">
+                <span class="mono-label">GOOGLE ANALYTICS 4 & SEARCH CONSOLE</span>
+                <span class="text-[11px] text-faint font-mono">SEKSI 06</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                <div>
+                    <label class="lbl">GA4 Measurement ID</label>
+                    <input type="text" name="settings[analytics][analytics_ga4_id]" value="<?= esc($grouped['analytics']['analytics_ga4_id'] ?? '') ?>" class="field text-xs font-mono" placeholder="G-XXXXXXXXXX">
+                    <p class="meta mt-1.5">Format <code>G-</code> diikuti 10 karakter. Kosongkan untuk mematikan gtag.js.</p>
+                </div>
+                <div>
+                    <label class="lbl">Google Search Console — Properti</label>
+                    <input type="text" name="settings[analytics][analytics_gsc_site]" value="<?= esc($grouped['analytics']['analytics_gsc_site'] ?? '') ?>" class="field text-xs font-mono" placeholder="sc-domain:pusatjersey.com">
+                    <p class="meta mt-1.5">Bentuk <code>sc-domain:</code> (domain property) atau <code>https://pusatjersey.com/</code> (URL prefix).</p>
+                </div>
+                <div>
+                    <label class="lbl">Token Verifikasi Search Console</label>
+                    <input type="text" name="settings[analytics][analytics_site_verification]" value="<?= esc($grouped['analytics']['analytics_site_verification'] ?? '') ?>" class="field text-xs font-mono" placeholder="abc123...">
+                    <p class="meta mt-1.5">Dari Search Console → Settings → Ownership verification → HTML tag. Dipasang otomatis sebagai meta tag.</p>
+                </div>
+                <div>
+                    <label class="lbl">Service Account JSON (Search Console API)</label>
+                    <input type="text" name="settings[analytics][analytics_gsc_sa_path]" value="<?= esc($grouped['analytics']['analytics_gsc_sa_path'] ?? '') ?>" class="field text-xs font-mono" placeholder="/home/akun/pj-gsc-sa.json">
+                    <p class="meta mt-1.5">Path absolut file kredensial service account (di luar <span class="font-mono">public/</span>). Kosong = hanya verifikasi meta, tanpa report API.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="flex items-center gap-3 pt-2">
             <button type="submit" class="btn-primary btn-sm px-6 gap-2">
-                <?= lucide_icon('save', 'w-4 h-4') ?>
+                <?= lineicon('save', 'w-4 h-4') ?>
                 <span>Simpan Semua Pengaturan</span>
             </button>
         </div>

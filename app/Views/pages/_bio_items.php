@@ -16,7 +16,7 @@ $isService = $type === 'services';
     <?php foreach ($items as $svc): ?>
         <li>
             <a href="/layanan/<?= esc($svc['slug']) ?>" target="_blank" rel="noopener" class="flex items-center gap-3 px-4 py-3.5 transition-colors hover:bg-[var(--color-surface-alt)]/50">
-                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[var(--color-surface-alt)] text-ink"><?= lucide_icon('shirt', 'w-4 h-4') ?></span>
+                <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[var(--color-surface-alt)] text-ink"><?= lineicon('shirt', 'w-4 h-4') ?></span>
                 <span class="min-w-0 flex-1">
                     <span class="block truncate text-[14px] font-semibold text-ink"><?= esc($svc['title']) ?></span>
                     <span class="meta mt-0.5 line-clamp-1 block"><?= esc($svc['short_desc'] ?? '') ?></span>

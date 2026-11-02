@@ -22,7 +22,7 @@ $priceOld = (float)($product['price'] ?? 0);
     </div>
     <div class="mt-3 flex items-center gap-2 border-t border-line pt-4">
       <a href="/produk/<?= esc($slug) ?>" class="btn-outline btn-sm flex-1">Detail</a>
-      <a href="/cta/whatsapp/<?= esc($slug) ?>" target="_blank" hx-boost="false" class="icon-btn" title="Pesan via WhatsApp" aria-label="Pesan <?= esc($name) ?> via WhatsApp"><?= lucide_icon('message-circle', 'w-4 h-4') ?></a>
+      <a href="/cta/whatsapp/<?= esc($slug) ?>" target="_blank" hx-boost="false" class="icon-btn" title="Pesan via WhatsApp" aria-label="Pesan <?= esc($name) ?> via WhatsApp"><?= lineicon('message-circle', 'w-4 h-4') ?></a>
     </div>
   </div>
 </article>

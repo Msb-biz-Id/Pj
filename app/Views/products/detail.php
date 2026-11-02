@@ -28,17 +28,17 @@ $waCta = $isAffiliate && !empty($product['affiliate_link']) ? '/cta/affiliate/' 
                   @click="openLightbox(active)"
                   class="absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full bg-ink/75 px-3 py-1.5 text-[11px] font-medium text-white shadow backdrop-blur hover:bg-ink transition-colors cursor-pointer"
                   title="Perbesar Galeri">
-            <?= lucide_icon('zoom-in', 'w-3.5 h-3.5') ?>
+            <?= lineicon('zoom-in', 'w-3.5 h-3.5') ?>
             <span>Perbesar</span>
           </button>
 
           <?php if (count($gallery) > 1): ?>
             <div class="pointer-events-none absolute inset-0 flex items-center justify-between p-3 opacity-0 transition-opacity group-hover:opacity-100">
               <button type="button" @click.stop="prev()" class="pointer-events-auto grid h-9 w-9 place-items-center rounded-full bg-surface/90 text-ink shadow backdrop-blur hover:bg-surface transition-transform active:scale-95 cursor-pointer" aria-label="Sebelumnya">
-                <?= lucide_icon('chevron-left', 'w-5 h-5') ?>
+                <?= lineicon('chevron-left', 'w-5 h-5') ?>
               </button>
               <button type="button" @click.stop="next()" class="pointer-events-auto grid h-9 w-9 place-items-center rounded-full bg-surface/90 text-ink shadow backdrop-blur hover:bg-surface transition-transform active:scale-95 cursor-pointer" aria-label="Berikutnya">
-                <?= lucide_icon('chevron-right', 'w-5 h-5') ?>
+                <?= lineicon('chevron-right', 'w-5 h-5') ?>
               </button>
             </div>
           <?php endif; ?>
@@ -96,7 +96,7 @@ $waCta = $isAffiliate && !empty($product['affiliate_link']) ? '/cta/affiliate/' 
                 <img src="<?= esc($g) ?>" alt="<?= esc($product['name']) ?> galeri <?= $i + 1 ?>" loading="lazy" class="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105">
                 <div class="absolute inset-0 bg-ink/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span class="rounded-full bg-surface/90 px-2.5 py-1 text-[11px] font-medium text-ink shadow-sm flex items-center gap-1">
-                    <?= lucide_icon('zoom-in', 'w-3.5 h-3.5') ?>
+                    <?= lineicon('zoom-in', 'w-3.5 h-3.5') ?>
                     <span>Lihat</span>
                   </span>
                 </div>

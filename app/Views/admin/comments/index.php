@@ -56,7 +56,7 @@
                                             <form action="<?= site_url('admin/comments/approve/' . $cm['id']) ?>" method="POST" class="inline">
                                                 <?= csrf_field() ?>
                                                 <button type="submit" class="icon-btn !h-8 !w-8 hover:border-emerald-500/50 hover:text-emerald-500" title="Setujui Tayang">
-                                                    <?= lucide_icon('check', 'w-3.5 h-3.5') ?>
+                                                    <?= lineicon('check', 'w-3.5 h-3.5') ?>
                                                 </button>
                                             </form>
                                         <?php endif; ?>
@@ -64,14 +64,14 @@
                                             <form action="<?= site_url('admin/comments/spam/' . $cm['id']) ?>" method="POST" class="inline">
                                                 <?= csrf_field() ?>
                                                 <button type="submit" class="icon-btn !h-8 !w-8 hover:border-amber-500/50 hover:text-amber-500" title="Tandai Spam">
-                                                    <?= lucide_icon('eye-off', 'w-3.5 h-3.5') ?>
+                                                    <?= lineicon('eye-off', 'w-3.5 h-3.5') ?>
                                                 </button>
                                             </form>
                                         <?php endif; ?>
                                         <form action="<?= site_url('admin/comments/delete/' . $cm['id']) ?>" method="POST" class="inline" onsubmit="return confirm('Hapus komentar ini?')">
                                             <?= csrf_field() ?>
                                             <button type="submit" class="icon-btn !h-8 !w-8 hover:border-rose-500/50 hover:text-rose-400" title="Hapus Permanen">
-                                                <?= lucide_icon('trash-2', 'w-3.5 h-3.5') ?>
+                                                <?= lineicon('trash-2', 'w-3.5 h-3.5') ?>
                                             </button>
                                         </form>
                                     </div>
@@ -81,7 +81,7 @@
                     <?php else: ?>
                         <tr>
                             <td colspan="6" class="p-12 text-center text-muted">
-                                <?= lucide_icon('message-square', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
+                                <?= lineicon('message-square', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
                                 <p class="text-sm">Belum ada komentar yang memerlukan moderasi.</p>
                             </td>
                         </tr>

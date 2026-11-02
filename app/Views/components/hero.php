@@ -15,7 +15,7 @@ $heroImage = $settingsJson['bg_image'] ?? 'https://images.unsplash.com/photo-157
       <h1 class="display mt-5 max-w-[18ch]"><?= esc($title) ?></h1>
       <p class="lede"><?= esc($subtitle) ?></p>
       <div class="mt-7 flex flex-wrap items-center gap-2">
-        <a href="<?= esc($ctaPrimary['url']) ?>" target="_blank" hx-boost="false" class="btn-wa anim-glow"><?= lucide_icon('message-circle','w-4 h-4') ?><span><?= esc($ctaPrimary['text']) ?></span></a>
+        <a href="<?= esc($ctaPrimary['url']) ?>" target="_blank" hx-boost="false" class="btn-wa anim-glow"><?= lineicon('message-circle','w-4 h-4') ?><span><?= esc($ctaPrimary['text']) ?></span></a>
         <a href="<?= esc($ctaSecondary['url']) ?>" class="btn-outline"><?= esc($ctaSecondary['text']) ?></a>
       </div>
       <dl class="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-line pt-6">

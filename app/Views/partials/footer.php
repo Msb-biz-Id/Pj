@@ -26,7 +26,7 @@ $footerNav = [
             </div>
             <div class="flex flex-wrap items-center gap-2">
                 <a href="https://wa.me/<?= esc($waNumber) ?>" target="_blank" hx-boost="false" class="btn-wa btn-sm">
-                    <?= lucide_icon('message-circle', 'w-4 h-4') ?>
+                    <?= lineicon('message-circle', 'w-4 h-4') ?>
                     <span>Chat WhatsApp</span>
                 </a>
                 <a href="/kontak" class="btn-outline btn-sm">Halaman Kontak</a>

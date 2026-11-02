@@ -19,6 +19,9 @@
     <meta property="og:locale" content="id_ID">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Google Analytics 4 + Search Console verification -->
+    <?= view('partials/analytics', ['settings' => $settings]) ?>
+
     <!-- Tailwind CSS (Compiled & Minified) — harus SEBELUM dynamic theme agar token CSS dari settings menimpa dengan pasti -->
     <link rel="stylesheet" href="<?= base_url('assets/css/app.min.css') ?>">
 

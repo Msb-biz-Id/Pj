@@ -7,7 +7,7 @@ $lede = $settingsJson['lede'] ?? 'Dokumentasi hasil produksi — klik untuk meli
   <div class="shell">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <?= view('partials/ui/section_head', ['eyebrow' => 'Portofolio', 'title' => $title, 'lede' => $lede]) ?>
-      <a href="/portofolio" class="link-more">Semua portofolio <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+      <a href="/portofolio" class="link-more">Semua portofolio <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
     </div>
     <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <?php if (!empty($portfolios)): ?>

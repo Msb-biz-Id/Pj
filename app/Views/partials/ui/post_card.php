@@ -17,6 +17,6 @@ $exc   = $post['excerpt'] ?? '';
     <p class="meta text-[11px]"><span class="font-semibold text-ink"><?= esc($cat) ?></span><?php if ($date): ?> <span aria-hidden="true">·</span> <?= esc($date) ?><?php endif; ?></p>
     <a href="/blog/<?= esc($slug) ?>" class="card-title line-clamp-2"><?= esc($title) ?></a>
     <?php if ($exc): ?><p class="text-[13.5px] leading-relaxed text-muted line-clamp-2"><?= esc($exc) ?></p><?php endif; ?>
-    <a href="/blog/<?= esc($slug) ?>" class="link-more mt-2">Baca artikel <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+    <a href="/blog/<?= esc($slug) ?>" class="link-more mt-2">Baca artikel <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
   </div>
 </article>

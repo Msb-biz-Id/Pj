@@ -20,7 +20,7 @@
             <div class="flex items-center justify-between">
                 <span class="mono-label">PRODUK</span>
                 <span class="p-2 rounded-full bg-[var(--color-surface-alt)] text-ink border border-line">
-                    <?= lucide_icon('shopping-bag', 'w-4 h-4') ?>
+                    <?= lineicon('shopping-bag', 'w-4 h-4') ?>
                 </span>
             </div>
             <div class="mt-4">
@@ -29,7 +29,7 @@
             </div>
             <a href="<?= site_url('admin/products') ?>" class="mt-4 pt-3 border-t border-line text-xs font-semibold text-ink flex items-center justify-between group">
                 <span>Kelola Katalog</span>
-                <span class="transition-transform group-hover:translate-x-0.5"><?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></span>
+                <span class="transition-transform group-hover:translate-x-0.5"><?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></span>
             </a>
         </div>
 
@@ -37,7 +37,7 @@
             <div class="flex items-center justify-between">
                 <span class="mono-label">LAYANAN</span>
                 <span class="p-2 rounded-full bg-[var(--color-surface-alt)] text-ink border border-line">
-                    <?= lucide_icon('shirt', 'w-4 h-4') ?>
+                    <?= lineicon('shirt', 'w-4 h-4') ?>
                 </span>
             </div>
             <div class="mt-4">
@@ -46,7 +46,7 @@
             </div>
             <a href="<?= site_url('admin/services') ?>" class="mt-4 pt-3 border-t border-line text-xs font-semibold text-ink flex items-center justify-between group">
                 <span>Kelola Layanan</span>
-                <span class="transition-transform group-hover:translate-x-0.5"><?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></span>
+                <span class="transition-transform group-hover:translate-x-0.5"><?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></span>
             </a>
         </div>
 
@@ -54,7 +54,7 @@
             <div class="flex items-center justify-between">
                 <span class="mono-label">BLOG</span>
                 <span class="p-2 rounded-full bg-[var(--color-surface-alt)] text-ink border border-line">
-                    <?= lucide_icon('file-text', 'w-4 h-4') ?>
+                    <?= lineicon('file-text', 'w-4 h-4') ?>
                 </span>
             </div>
             <div class="mt-4">
@@ -63,7 +63,7 @@
             </div>
             <a href="<?= site_url('admin/blog') ?>" class="mt-4 pt-3 border-t border-line text-xs font-semibold text-ink flex items-center justify-between group">
                 <span>Tulis Artikel Baru</span>
-                <span class="transition-transform group-hover:translate-x-0.5"><?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></span>
+                <span class="transition-transform group-hover:translate-x-0.5"><?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></span>
             </a>
         </div>
 
@@ -71,7 +71,7 @@
             <div class="flex items-center justify-between">
                 <span class="mono-label">KOMPONEN</span>
                 <span class="p-2 rounded-full bg-[var(--color-surface-alt)] text-ink border border-line">
-                    <?= lucide_icon('layers', 'w-4 h-4') ?>
+                    <?= lineicon('layers', 'w-4 h-4') ?>
                 </span>
             </div>
             <div class="mt-4">
@@ -80,7 +80,7 @@
             </div>
             <a href="<?= site_url('admin/sections') ?>" class="mt-4 pt-3 border-t border-line text-xs font-semibold text-ink flex items-center justify-between group">
                 <span>Atur Urutan Seksi</span>
-                <span class="transition-transform group-hover:translate-x-0.5"><?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></span>
+                <span class="transition-transform group-hover:translate-x-0.5"><?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></span>
             </a>
         </div>
 
@@ -95,7 +95,7 @@
                 <div class="space-y-0.5">
                     <span class="mono-label text-[10px]">PAGE BUILDER</span>
                     <h2 class="font-heading text-base font-semibold text-ink flex items-center gap-2">
-                        <?= lucide_icon('layers', 'w-4 h-4') ?>
+                        <?= lineicon('layers', 'w-4 h-4') ?>
                         <span>Komponen Beranda Aktif</span>
                     </h2>
                 </div>
@@ -136,7 +136,7 @@
                 <div class="space-y-0.5">
                     <span class="mono-label text-[10px]">MODERASI</span>
                     <h2 class="font-heading text-base font-semibold text-ink flex items-center gap-2">
-                        <?= lucide_icon('message-square', 'w-4 h-4') ?>
+                        <?= lineicon('message-square', 'w-4 h-4') ?>
                         <span>Komentar Blog Terbaru</span>
                     </h2>
                 </div>
@@ -161,7 +161,7 @@
                     <?php endforeach; ?>
                 <?php else: ?>
                     <div class="py-8 text-center text-muted text-xs border border-dashed border-line rounded-[10px]">
-                        <?= lucide_icon('message-square', 'w-6 h-6 mx-auto text-faint mb-2 opacity-50') ?>
+                        <?= lineicon('message-square', 'w-6 h-6 mx-auto text-faint mb-2 opacity-50') ?>
                         Belum ada komentar baru yang masuk.
                     </div>
                 <?php endif; ?>

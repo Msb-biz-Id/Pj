@@ -69,6 +69,10 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     // --- Log Error Sistem (viewer dinamis writable/logs/*.log) ---
     $routes->get('logs', 'Admin\Logs::index');
 
+    // --- Analitik Traffic & Konversi (data lokal: page_views + cta_logs) ---
+    $routes->get('traffic', 'Admin\Traffic::index');
+    $routes->get('traffic/search-console', 'Admin\Traffic::searchConsole');
+
     // --- Page Builder Sections ---
     $routes->get('sections', 'Admin\Sections::index');
     $routes->post('sections/reorder', 'Admin\Sections::reorder');

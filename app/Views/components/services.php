@@ -7,7 +7,7 @@ $lede = $settingsJson['lede'] ?? 'Satu workshop untuk semua kebutuhan apparel ti
   <div class="shell">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <?= view('partials/ui/section_head', ['eyebrow' => 'Layanan', 'title' => $title, 'lede' => $lede]) ?>
-      <a href="/layanan" class="link-more">Semua layanan <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+      <a href="/layanan" class="link-more">Semua layanan <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
     </div>
     <div class="mt-8 divide-y divide-line border-y border-line">
       <?php if (!empty($services)): ?>
@@ -19,7 +19,7 @@ $lede = $settingsJson['lede'] ?? 'Satu workshop untuk semua kebutuhan apparel ti
               <span class="meta mt-1 line-clamp-1 block"><?= esc($srv['short_desc']) ?></span>
             </span>
             <span class="meta sm:col-span-3">Mulai Rp <?= number_format($srv['starting_price'], 0, ',', '.') ?></span>
-            <span class="sm:col-span-2 sm:justify-self-end"><span class="icon-btn transition-transform group-hover:translate-x-1"><?= lucide_icon('arrow-up-right', 'w-4 h-4') ?></span></span>
+            <span class="sm:col-span-2 sm:justify-self-end"><span class="icon-btn transition-transform group-hover:translate-x-1"><?= lineicon('arrow-up-right', 'w-4 h-4') ?></span></span>
           </a>
         <?php endforeach; ?>
       <?php else: ?>

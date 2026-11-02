@@ -14,20 +14,20 @@
                 <span class="font-mono text-[11px]"><?= esc($geoBase) ?>{kota}</span> dengan judul &amp; meta yang bisa dikustomisasi.</p>
         </div>
         <a href="<?= site_url('admin/services') ?>" class="btn-outline btn-sm gap-1.5 text-xs">
-            <?= lucide_icon('arrow-left', 'w-3.5 h-3.5') ?>
+            <?= lineicon('arrow-left', 'w-3.5 h-3.5') ?>
             <span>Kembali</span>
         </a>
     </div>
 
     <?php if (session()->getFlashdata('success')): ?>
         <div class="p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 rounded-[12px] text-xs flex items-center gap-2.5">
-            <?= lucide_icon('check-circle', 'w-4 h-4 shrink-0') ?>
+            <?= lineicon('check-circle', 'w-4 h-4 shrink-0') ?>
             <span><?= esc(session()->getFlashdata('success')) ?></span>
         </div>
     <?php endif; ?>
     <?php if (session()->getFlashdata('error')): ?>
         <div class="p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-[12px] text-xs flex items-center gap-2.5">
-            <?= lucide_icon('alert-circle', 'w-4 h-4 shrink-0') ?>
+            <?= lineicon('alert-circle', 'w-4 h-4 shrink-0') ?>
             <span><?= esc(session()->getFlashdata('error')) ?></span>
         </div>
     <?php endif; ?>
@@ -50,7 +50,7 @@
                     </select>
                 </div>
                 <button type="submit" class="btn-primary btn-sm gap-2">
-                    <?= lucide_icon('link', 'w-4 h-4') ?>
+                    <?= lineicon('link', 'w-4 h-4') ?>
                     <span>Pasang &amp; Buat URL</span>
                 </button>
             </div>
@@ -72,21 +72,21 @@
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-line pb-4">
                         <div class="flex items-center gap-2.5">
                             <div class="w-9 h-9 rounded-[10px] bg-[var(--color-surface-alt)] text-ink flex items-center justify-center border border-line">
-                                <?= lucide_icon('map-pin', 'w-4 h-4') ?>
+                                <?= lineicon('map-pin', 'w-4 h-4') ?>
                             </div>
                             <div>
                                 <p class="font-heading font-semibold text-ink text-[13px]"><?= esc($row['loc_name']) ?>
                                     <span class="text-[10px] font-mono text-faint ml-1"><?= esc($row['loc_province'] ?? '') ?></span>
                                 </p>
                                 <a href="<?= base_url($geoBase . $row['loc_slug']) ?>" target="_blank" hx-boost="false" class="font-mono text-[11px] text-muted hover:text-ink inline-flex items-center gap-1">
-                                    <?= esc($geoBase . $row['loc_slug']) ?> <?= lucide_icon('external-link', 'w-3 h-3') ?>
+                                    <?= esc($geoBase . $row['loc_slug']) ?> <?= lineicon('external-link', 'w-3 h-3') ?>
                                 </a>
                             </div>
                         </div>
                         <form action="<?= site_url('admin/services/locations/' . $service['id'] . '/detach/' . $row['location_id']) ?>" method="POST" onsubmit="return confirm('Lepas lokasi <?= esc($row['loc_name']) ?>? Halaman geo ini akan berhenti tampil & hilang dari sitemap.')">
                             <?= csrf_field() ?>
                             <button type="submit" class="btn-outline btn-sm gap-1.5 text-xs !text-rose-400 hover:!border-rose-500/50">
-                                <?= lucide_icon('unlink', 'w-3.5 h-3.5') ?>
+                                <?= lineicon('unlink', 'w-3.5 h-3.5') ?>
                                 <span>Lepas</span>
                             </button>
                         </form>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="flex justify-end">
                             <button type="submit" class="btn-primary btn-sm gap-1.5">
-                                <?= lucide_icon('save', 'w-3.5 h-3.5') ?>
+                                <?= lineicon('save', 'w-3.5 h-3.5') ?>
                                 <span>Simpan SEO <?= esc($row['loc_name']) ?></span>
                             </button>
                         </div>
@@ -128,7 +128,7 @@
         </div>
     <?php else: ?>
         <div class="card p-12 text-center text-muted">
-            <?= lucide_icon('map-pin', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
+            <?= lineicon('map-pin', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
             <p class="text-sm">Belum ada lokasi terpasang untuk layanan ini.</p>
             <p class="text-xs mt-1">Pasang kota lewat form di atas untuk membuat halaman geo per kota.</p>
         </div>

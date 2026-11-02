@@ -17,6 +17,9 @@
     <meta property="og:image" content="<?= esc($settings['brand']['logo'] ?? '/favicon.ico') ?>">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Google Analytics 4 + Search Console verification -->
+    <?= view('partials/analytics', ['settings' => $settings]) ?>
+
     <link rel="stylesheet" href="<?= base_url('assets/css/app.min.css') ?>">
     <script>document.documentElement.classList.add('js-anim');</script>
     <link rel="stylesheet" href="<?= base_url('assets/css/motion.css') ?>">

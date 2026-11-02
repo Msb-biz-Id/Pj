@@ -10,7 +10,7 @@
             <p class="text-xs text-muted">Kelola koleksi jersey custom sublimasi dan produk authentic official tim.</p>
         </div>
         <a href="<?= site_url('admin/products/create') ?>" class="btn-primary btn-sm gap-2">
-            <?= lucide_icon('plus', 'w-4 h-4') ?>
+            <?= lineicon('plus', 'w-4 h-4') ?>
             <span>Tambah Produk</span>
         </a>
     </div>
@@ -79,15 +79,15 @@
                                 <td class="p-4 text-right">
                                     <div class="inline-flex items-center gap-1.5">
                                         <a href="<?= base_url('produk/' . esc($p['slug'])) ?>" target="_blank" hx-boost="false" class="icon-btn !h-8 !w-8 hover:text-ink" title="Lihat di Frontend">
-                                            <?= lucide_icon('external-link', 'w-3.5 h-3.5') ?>
+                                            <?= lineicon('external-link', 'w-3.5 h-3.5') ?>
                                         </a>
                                         <a href="<?= site_url('admin/products/edit/' . $p['id']) ?>" class="icon-btn !h-8 !w-8 hover:text-ink" title="Edit">
-                                            <?= lucide_icon('edit', 'w-3.5 h-3.5') ?>
+                                            <?= lineicon('edit', 'w-3.5 h-3.5') ?>
                                         </a>
                                         <form action="<?= site_url('admin/products/delete/' . $p['id']) ?>" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
                                             <?= csrf_field() ?>
                                             <button type="submit" class="icon-btn !h-8 !w-8 hover:border-rose-500/50 hover:text-rose-400" title="Hapus">
-                                                <?= lucide_icon('trash-2', 'w-3.5 h-3.5') ?>
+                                                <?= lineicon('trash-2', 'w-3.5 h-3.5') ?>
                                             </button>
                                         </form>
                                     </div>
@@ -97,7 +97,7 @@
                     <?php else: ?>
                         <tr>
                             <td colspan="7" class="p-12 text-center text-muted">
-                                <?= lucide_icon('shopping-bag', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
+                                <?= lineicon('shopping-bag', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
                                 <p class="text-sm">Belum ada produk yang terdaftar.</p>
                                 <a href="<?= site_url('admin/products/create') ?>" class="btn-primary btn-sm mt-3 inline-flex">Tambah Produk Pertama</a>
                             </td>

@@ -31,9 +31,9 @@ $handle  = strtolower(preg_replace('/[^A-Za-z0-9]+/', '', $brand['name'] ?? 'pus
         <p class="mt-4 text-[13.5px] leading-relaxed text-muted"><?= esc($about['short_desc'] ?? ($brand['tagline'] ?? '')) ?></p>
 
         <ul class="mt-4 flex flex-wrap gap-2">
-            <li class="chip !h-7 !px-2.5 text-[11px]"><?= lucide_icon('shirt', 'w-3.5 h-3.5') ?><span><?= esc($brand['tagline'] ?? 'Custom Apparel') ?></span></li>
-            <li class="chip !h-7 !px-2.5 text-[11px]"><?= lucide_icon('map-pin', 'w-3.5 h-3.5') ?><span><?= esc($contact['city'] ?? '-') ?></span></li>
-            <li class="chip !h-7 !px-2.5 text-[11px]"><?= lucide_icon('badge-check', 'w-3.5 h-3.5') ?><span>Sejak <?= esc($brand['founding_year'] ?? '-') ?></span></li>
+            <li class="chip !h-7 !px-2.5 text-[11px]"><?= lineicon('shirt', 'w-3.5 h-3.5') ?><span><?= esc($brand['tagline'] ?? 'Custom Apparel') ?></span></li>
+            <li class="chip !h-7 !px-2.5 text-[11px]"><?= lineicon('map-pin', 'w-3.5 h-3.5') ?><span><?= esc($contact['city'] ?? '-') ?></span></li>
+            <li class="chip !h-7 !px-2.5 text-[11px]"><?= lineicon('badge-check', 'w-3.5 h-3.5') ?><span>Sejak <?= esc($brand['founding_year'] ?? '-') ?></span></li>
         </ul>
 
         <!-- Media sosial (dari settings social_links_json) -->
@@ -80,7 +80,7 @@ $handle  = strtolower(preg_replace('/[^A-Za-z0-9]+/', '', $brand['name'] ?? 'pus
     <section class="px-5">
         <div class="flex items-baseline justify-between">
             <h2 class="font-heading text-[16px] font-semibold text-ink">Layanan</h2>
-            <a href="/layanan" target="_blank" rel="noopener" class="meta flex items-center gap-1 hover:text-ink">Semua <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+            <a href="/layanan" target="_blank" rel="noopener" class="meta flex items-center gap-1 hover:text-ink">Semua <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
         </div>
         <ul id="bio-list-services" class="mt-3 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface"
             hx-get="<?= esc(site_url('bio/items') . '?type=services&offset=0&limit=6') ?>"
@@ -88,7 +88,7 @@ $handle  = strtolower(preg_replace('/[^A-Za-z0-9]+/', '', $brand['name'] ?? 'pus
             hx-swap="innerHTML">
             <li class="flex items-center gap-3 px-4 py-3.5">
                 <span class="htmx-indicator flex items-center gap-2 text-[12.5px] text-muted">
-                    <?= lucide_icon('loader-2', 'w-4 h-4 animate-spin') ?> Memuat layanan…
+                    <?= lineicon('loader-2', 'w-4 h-4 animate-spin') ?> Memuat layanan…
                 </span>
             </li>
         </ul>
@@ -98,7 +98,7 @@ $handle  = strtolower(preg_replace('/[^A-Za-z0-9]+/', '', $brand['name'] ?? 'pus
     <section>
         <div class="flex items-baseline justify-between px-5">
             <h2 class="font-heading text-[16px] font-semibold text-ink">Produk Pilihan</h2>
-            <a href="/produk" target="_blank" rel="noopener" class="meta flex items-center gap-1 hover:text-ink">Katalog <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+            <a href="/produk" target="_blank" rel="noopener" class="meta flex items-center gap-1 hover:text-ink">Katalog <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
         </div>
         <div id="bio-list-products"
              class="mt-3 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0"
@@ -106,7 +106,7 @@ $handle  = strtolower(preg_replace('/[^A-Za-z0-9]+/', '', $brand['name'] ?? 'pus
              hx-trigger="load"
              hx-swap="innerHTML">
             <span class="htmx-indicator flex items-center gap-2 px-1 text-[12.5px] text-muted">
-                <?= lucide_icon('loader-2', 'w-4 h-4 animate-spin') ?> Memuat produk…
+                <?= lineicon('loader-2', 'w-4 h-4 animate-spin') ?> Memuat produk…
             </span>
         </div>
     </section>
@@ -152,7 +152,7 @@ $handle  = strtolower(preg_replace('/[^A-Za-z0-9]+/', '', $brand['name'] ?? 'pus
     <!-- Sticky bottom action bar: mobile-only -->
     <div class="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-[var(--color-bg)]/95 p-3 backdrop-blur-md lg:hidden">
         <div class="mx-auto flex max-w-2xl items-center gap-2 px-2">
-            <a href="https://wa.me/<?= esc($waNumber) ?>" target="_blank" rel="noopener" class="btn-wa flex-1 justify-center"><?= lucide_icon('message-circle', 'w-4 h-4') ?><span>Chat WhatsApp</span></a>
+            <a href="https://wa.me/<?= esc($waNumber) ?>" target="_blank" rel="noopener" class="btn-wa flex-1 justify-center"><?= lineicon('message-circle', 'w-4 h-4') ?><span>Chat WhatsApp</span></a>
             <a href="/kontak" target="_blank" rel="noopener" class="btn-outline shrink-0">Kontak</a>
         </div>
     </div>

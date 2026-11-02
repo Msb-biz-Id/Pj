@@ -58,7 +58,7 @@ $qs = static function (string $level) use ($logActiveFile): string {
                 hx-swap="innerHTML"
                 class="icon-btn !h-8 !w-8 ml-auto"
                 title="Muat ulang sekarang">
-            <?= lucide_icon('rotate-ccw', 'w-3.5 h-3.5') ?>
+            <?= lineicon('rotate-ccw', 'w-3.5 h-3.5') ?>
         </button>
     </div>
 

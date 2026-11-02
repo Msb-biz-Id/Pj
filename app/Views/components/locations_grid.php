@@ -11,7 +11,7 @@ $lede = $settingsJson['lede'] ?? 'Pilih kota untuk melihat halaman layanan dan e
         <?php foreach (array_slice($locations, 0, 12) as $loc): ?>
           <a href="/layanan/pusat-jersey-custom-<?= esc($loc['slug']) ?>" class="group flex items-center justify-between py-3.5">
             <span class="text-[14px] text-ink">Pusat Jersey Custom <?= esc($loc['name']) ?></span>
-            <span class="meta flex items-center gap-2">Lihat halaman <?= lucide_icon('arrow-right', 'w-3.5 h-3.5 transition-transform group-hover:translate-x-1') ?></span>
+            <span class="meta flex items-center gap-2">Lihat halaman <?= lineicon('arrow-right', 'w-3.5 h-3.5 transition-transform group-hover:translate-x-1') ?></span>
           </a>
           <span class="border-b border-line last:border-0"></span>
         <?php endforeach; ?>

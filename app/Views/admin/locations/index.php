@@ -13,13 +13,13 @@
 
     <?php if (session()->getFlashdata('success')): ?>
         <div class="p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 rounded-[12px] text-xs flex items-center gap-2.5">
-            <?= lucide_icon('check-circle', 'w-4 h-4 shrink-0') ?>
+            <?= lineicon('check-circle', 'w-4 h-4 shrink-0') ?>
             <span><?= esc(session()->getFlashdata('success')) ?></span>
         </div>
     <?php endif; ?>
     <?php if (session()->getFlashdata('error')): ?>
         <div class="p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-[12px] text-xs flex items-center gap-2.5">
-            <?= lucide_icon('alert-circle', 'w-4 h-4 shrink-0') ?>
+            <?= lineicon('alert-circle', 'w-4 h-4 shrink-0') ?>
             <span><?= esc(session()->getFlashdata('error')) ?></span>
         </div>
     <?php endif; ?>
@@ -49,7 +49,7 @@
             </div>
             <div class="flex items-end">
                 <button type="submit" class="btn-primary btn-sm w-full justify-center gap-2">
-                    <?= lucide_icon('plus', 'w-4 h-4') ?>
+                    <?= lineicon('plus', 'w-4 h-4') ?>
                     <span>Tambah</span>
                 </button>
             </div>
@@ -77,7 +77,7 @@
                             <tr class="hover:bg-[var(--color-surface-alt)]/50 transition-colors align-top">
                                 <td class="p-4 font-heading font-semibold text-ink text-[13px]">
                                     <div class="flex items-center gap-2">
-                                        <?= lucide_icon('map-pin', 'w-3.5 h-3.5 text-faint') ?>
+                                        <?= lineicon('map-pin', 'w-3.5 h-3.5 text-faint') ?>
                                         <?= esc($loc['name']) ?>
                                     </div>
                                 </td>
@@ -94,12 +94,12 @@
                                 <td class="p-4 text-right">
                                     <div class="inline-flex items-center gap-1.5">
                                         <button type="button" @click="openEdit === <?= $loc['id'] ?> ? openEdit = null : openEdit = <?= $loc['id'] ?>" class="icon-btn !h-8 !w-8 hover:text-ink" title="Edit">
-                                            <?= lucide_icon('edit', 'w-3.5 h-3.5') ?>
+                                            <?= lineicon('edit', 'w-3.5 h-3.5') ?>
                                         </button>
                                         <form action="<?= site_url('admin/locations/delete/' . $loc['id']) ?>" method="POST" class="inline" onsubmit="return confirm('Hapus lokasi <?= esc($loc['name']) ?>? Seluruh halaman geo layanan di kota ini ikut dihapus.')">
                                             <?= csrf_field() ?>
                                             <button type="submit" class="icon-btn !h-8 !w-8 hover:border-rose-500/50 hover:text-rose-400" title="Hapus">
-                                                <?= lucide_icon('trash-2', 'w-3.5 h-3.5') ?>
+                                                <?= lineicon('trash-2', 'w-3.5 h-3.5') ?>
                                             </button>
                                         </form>
                                     </div>
@@ -109,7 +109,7 @@
                     <?php else: ?>
                         <tr>
                             <td colspan="6" class="p-12 text-center text-muted">
-                                <?= lucide_icon('map-pin', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
+                                <?= lineicon('map-pin', 'w-8 h-8 mx-auto text-faint mb-3 opacity-50') ?>
                                 <p class="text-sm">Belum ada lokasi. Tambahkan kota pertama lewat form di atas.</p>
                             </td>
                         </tr>

@@ -173,7 +173,7 @@ class Page extends BaseController
                     <form hx-post="/kontak/send" hx-target="#contact-response-container" hx-swap="outerHTML" hx-boost="false" hx-select="unset" class="space-y-4">
                       ' . csrf_field() . '
                       <div class="p-3.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-xl text-xs flex items-center gap-2">
-                        ' . lucide_icon('alert-circle', 'w-4 h-4 shrink-0') . '
+                        ' . lineicon('alert-circle', 'w-4 h-4 shrink-0') . '
                         <span>' . esc($firstError) . '</span>
                       </div>
                       <div class="grid gap-4 sm:grid-cols-2">
@@ -199,12 +199,12 @@ class Page extends BaseController
         if ($this->isHtmx) {
             return '<div id="contact-response-container" class="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-[var(--radius-lg)] text-ink">
                 <div class="flex items-center space-x-3 mb-2">
-                    <span class="text-emerald-500">' . lucide_icon('check-circle', 'w-6 h-6') . '</span>
+                    <span class="text-emerald-500">' . lineicon('check-circle', 'w-6 h-6') . '</span>
                     <span class="font-bold text-base text-ink">Pesan Terkirim!</span>
                 </div>
                 <p class="text-xs text-muted mb-4 leading-relaxed">Terima kasih telah menghubungi kami. Tim CS kami akan merespons pesan Anda secara instan via WhatsApp.</p>
                 <a href="' . $waUrl . '" target="_blank" hx-boost="false" class="btn-wa inline-flex">
-                    ' . lucide_icon('message-circle', 'w-4 h-4') . '
+                    ' . lineicon('message-circle', 'w-4 h-4') . '
                     <span>Lanjutkan ke WhatsApp</span>
                 </a>
             </div>';

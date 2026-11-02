@@ -53,7 +53,7 @@
             <div id="login-alert">
                 <?php if (session()->getFlashdata('error')): ?>
                     <div class="p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-[12px] text-xs leading-relaxed flex items-start gap-2.5">
-                        <div class="mt-0.5 shrink-0"><?= lucide_icon('alert-circle', 'w-4 h-4') ?></div>
+                        <div class="mt-0.5 shrink-0"><?= lineicon('alert-circle', 'w-4 h-4') ?></div>
                         <div><?= esc(session()->getFlashdata('error')) ?></div>
                     </div>
                 <?php endif; ?>
@@ -81,7 +81,7 @@
                                class="field text-xs pl-10"
                                placeholder="admin">
                         <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-faint pointer-events-none">
-                            <?= lucide_icon('user', 'w-4 h-4') ?>
+                            <?= lineicon('user', 'w-4 h-4') ?>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                                class="field text-xs pl-10 tracking-widest"
                                placeholder="••••••••">
                         <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-faint pointer-events-none">
-                            <?= lucide_icon('lock', 'w-4 h-4') ?>
+                            <?= lineicon('lock', 'w-4 h-4') ?>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                     <button type="submit" class="btn-primary w-full h-11 text-xs gap-2 font-semibold">
                         <span>Masuk ke Dashboard</span>
                         <span class="htmx-indicator inline-block animate-spin">⟳</span>
-                        <?= lucide_icon('arrow-right', 'w-4 h-4') ?>
+                        <?= lineicon('arrow-right', 'w-4 h-4') ?>
                     </button>
                 </div>
             </form>
@@ -119,7 +119,7 @@
             <!-- Footer Link -->
             <div class="flex items-center justify-between text-xs text-muted">
                 <a href="<?= base_url() ?>" class="link-quiet inline-flex items-center gap-1.5 hover:text-ink">
-                    <?= lucide_icon('arrow-left', 'w-3.5 h-3.5') ?>
+                    <?= lineicon('arrow-left', 'w-3.5 h-3.5') ?>
                     <span>Kembali ke Beranda</span>
                 </a>
                 <span class="font-mono text-[10px] text-faint">v2.0 · SPA HTMX</span>

@@ -8,6 +8,6 @@ $waMsg = rawurlencode('Halo Admin ' . ($settings['brand']['name'] ?? 'Pusat Jers
 <section class="border-b border-line">
   <div class="shell flex flex-col gap-3 py-8 sm:flex-row sm:items-center sm:justify-between" data-reveal>
     <p class="font-heading text-[17px] font-semibold tracking-tight text-ink"><?= esc($heading) ?></p>
-    <a href="https://wa.me/<?= esc($waNumber) ?>?text=<?= $waMsg ?>" target="_blank" hx-boost="false" class="btn-wa btn-sm shrink-0"><?= lucide_icon('message-circle', 'w-4 h-4') ?><span><?= esc($text) ?></span></a>
+    <a href="https://wa.me/<?= esc($waNumber) ?>?text=<?= $waMsg ?>" target="_blank" hx-boost="false" class="btn-wa btn-sm shrink-0"><?= lineicon('message-circle', 'w-4 h-4') ?><span><?= esc($text) ?></span></a>
   </div>
 </section>

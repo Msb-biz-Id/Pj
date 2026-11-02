@@ -34,7 +34,8 @@ class Settings extends BaseController
         $allowedKeys = [
             'brand_name', 'brand_legal_name', 'brand_tagline', 'brand_logo', 'brand_favicon', 'brand_founding_year',
             'contact_phone', 'contact_whatsapp', 'contact_email', 'contact_address', 'contact_city',
-            'contact_maps_embed', 'contact_opening_hours_json', 'social_links_json',
+            'contact_maps_embed', 'contact_opening_hours_json',             'social_links_json',
+            'analytics_ga4_id', 'analytics_gsc_site', 'analytics_site_verification', 'analytics_gsc_sa_path',
             'partners_json',
             'about_title', 'about_short_desc', 'about_story_html', 'about_vision', 'about_mission', 'about_stats_json',
             'theme_color_primary', 'theme_color_secondary', 'theme_color_accent',
@@ -61,7 +62,7 @@ class Settings extends BaseController
         cache()->delete('settings_structured_v1');
 
         return '<div class="p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-2xl text-xs flex items-center space-x-2">
-            ' . lucide_icon('check-circle', 'w-5 h-5 shrink-0') . '
+            ' . lineicon('check-circle', 'w-5 h-5 shrink-0') . '
             <span>Pengaturan berhasil diperbarui secara instan!</span>
         </div>';
     }

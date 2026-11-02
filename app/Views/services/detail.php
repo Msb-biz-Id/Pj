@@ -50,7 +50,7 @@ $crumbs[] = ['label' => $service['title']];
           <?php foreach ($siblings as $sib): ?>
             <a href="<?= base_url('layanan/' . $parentSlug . '-' . $sib['slug']) ?>"
                class="inline-flex items-center gap-1.5 rounded-full border border-line bg-[var(--color-surface-alt)] px-3 py-1.5 text-[12px] text-ink hover:bg-surface hover:border-ink/30 transition-colors">
-              <?= lucide_icon('map-pin', 'w-3.5 h-3.5 text-faint') ?>
+              <?= lineicon('map-pin', 'w-3.5 h-3.5 text-faint') ?>
               <?= esc($sib['name']) ?>
             </a>
           <?php endforeach; ?>

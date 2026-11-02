@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /bio/items
 
 Sitemap: https://pusatjersey.com/sitemap.xml

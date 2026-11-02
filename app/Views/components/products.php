@@ -7,7 +7,7 @@ $lede = $settingsJson['lede'] ?? 'Jersey custom dan stok original — harga tran
   <div class="shell">
     <div class="flex flex-wrap items-end justify-between gap-4">
       <?= view('partials/ui/section_head', ['eyebrow' => 'Katalog', 'title' => $title, 'lede' => $lede]) ?>
-      <a href="/produk" class="link-more">Semua katalog <?= lucide_icon('arrow-right', 'w-3.5 h-3.5') ?></a>
+      <a href="/produk" class="link-more">Semua katalog <?= lineicon('arrow-right', 'w-3.5 h-3.5') ?></a>
     </div>
     <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <?php if (!empty($products)): ?>

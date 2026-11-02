@@ -105,13 +105,13 @@
                     class="md:hidden p-2 -ml-1 rounded-lg text-muted hover:text-ink hover:bg-[var(--color-surface-alt)] transition-colors focus:outline-none"
                     aria-label="Toggle Navigation Drawer"
                     :aria-expanded="mobileNav">
-                <span x-show="!mobileNav"><?= lucide_icon('menu', 'w-5 h-5') ?></span>
-                <span x-show="mobileNav" x-cloak><?= lucide_icon('x', 'w-5 h-5') ?></span>
+                <span x-show="!mobileNav"><?= lineicon('menu', 'w-5 h-5') ?></span>
+                <span x-show="mobileNav" x-cloak><?= lineicon('x', 'w-5 h-5') ?></span>
             </button>
 
             <a href="<?= site_url('admin/dashboard') ?>" class="flex items-center space-x-2 font-bold text-base text-ink font-heading group">
                 <span class="p-1.5 bg-ink text-[var(--color-bg)] rounded-lg transition-transform group-hover:scale-105">
-                    <?= lucide_icon('shield-check', 'w-4 h-4') ?>
+                    <?= lineicon('shield-check', 'w-4 h-4') ?>
                 </span>
                 <span class="tracking-tight"><?= esc($settings['brand']['name'] ?? 'PusatJersey') ?></span>
                 <span class="mono-label text-[10px] px-2 py-0.5 rounded-full border border-line bg-[var(--color-surface-alt)]">
@@ -130,14 +130,14 @@
             <?= view('partials/theme_switcher', ['btnClass' => '!h-8 !w-8']) ?>
 
             <a href="<?= base_url() ?>" target="_blank" hx-boost="false" class="btn-outline btn-sm gap-1.5 text-xs">
-                <?= lucide_icon('external-link', 'w-3.5 h-3.5') ?>
+                <?= lineicon('external-link', 'w-3.5 h-3.5') ?>
                 <span class="hidden sm:inline">Lihat Situs</span>
             </a>
 
             <form action="<?= site_url('admin/logout') ?>" method="POST" hx-boost="false" class="inline">
                 <?= csrf_field() ?>
                 <button type="submit" class="btn-outline btn-sm gap-1.5 text-xs hover:border-rose-500/50 hover:text-rose-400 transition-colors">
-                    <?= lucide_icon('log-out', 'w-3.5 h-3.5') ?>
+                    <?= lineicon('log-out', 'w-3.5 h-3.5') ?>
                     <span>Logout</span>
                 </button>
             </form>
@@ -169,7 +169,7 @@
             
             return '<a href="' . site_url($href) . '" class="group flex items-center justify-between px-3 py-2 rounded-[10px] text-xs transition-colors ' . $activeClass . '">
                 <div class="flex items-center space-x-2.5">
-                    <span class="nav-icon ' . $iconColor . ' transition-colors">' . lucide_icon($icon, 'w-4 h-4') . '</span>
+                    <span class="nav-icon ' . $iconColor . ' transition-colors">' . lineicon($icon, 'w-4 h-4') . '</span>
                     <span>' . esc($label) . '</span>
                 </div>
                 ' . ($isActive ? '<span class="admin-active-dot w-1.5 h-1.5 rounded-full bg-ink"></span>' : '') . '

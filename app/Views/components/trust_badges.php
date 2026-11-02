@@ -12,7 +12,7 @@ $items = $settingsJson['items'] ?? [
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       <?php foreach ($items as $item): ?>
         <li class="flex gap-3" data-reveal>
-          <span class="icon-btn !h-10 !w-10 shrink-0"><?= lucide_icon($item['icon'] ?? 'check', 'w-4 h-4') ?></span>
+          <span class="icon-btn !h-10 !w-10 shrink-0"><?= lineicon($item['icon'] ?? 'check', 'w-4 h-4') ?></span>
           <div><p class="text-[13.5px] font-semibold text-ink"><?= esc($item['label']) ?></p><p class="meta mt-0.5"><?= esc($item['desc']) ?></p></div>
         </li>
       <?php endforeach; ?>

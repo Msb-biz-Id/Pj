@@ -31,14 +31,14 @@ if (!empty($product['specs_json'])) {
             </h1>
         </div>
         <a href="<?= site_url('admin/products') ?>" class="btn-outline btn-sm gap-1.5 text-xs">
-            <?= lucide_icon('arrow-left', 'w-3.5 h-3.5') ?>
+            <?= lineicon('arrow-left', 'w-3.5 h-3.5') ?>
             <span>Kembali</span>
         </a>
     </div>
 
     <?php if (session()->getFlashdata('error')): ?>
         <div class="p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-[12px] text-xs flex items-center gap-2.5">
-            <?= lucide_icon('alert-circle', 'w-4 h-4 shrink-0') ?>
+            <?= lineicon('alert-circle', 'w-4 h-4 shrink-0') ?>
             <span><?= esc(session()->getFlashdata('error')) ?></span>
         </div>
     <?php endif; ?>
@@ -148,7 +148,7 @@ if (!empty($product['specs_json'])) {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                     <label class="lbl flex items-center gap-1.5" for="link-shopee">
-                        <?= lucide_icon('shopping-bag', 'w-3.5 h-3.5 text-orange-500') ?>
+                        <?= lineicon('shopping-bag', 'w-3.5 h-3.5 text-orange-500') ?>
                         <span>Shopee URL</span>
                     </label>
                     <input type="text" id="link-shopee" name="shopee_link" value="<?= esc($product['shopee_link'] ?? '') ?>"
@@ -157,7 +157,7 @@ if (!empty($product['specs_json'])) {
                 </div>
                 <div>
                     <label class="lbl flex items-center gap-1.5" for="link-tokped">
-                        <?= lucide_icon('shopping-bag', 'w-3.5 h-3.5 text-emerald-500') ?>
+                        <?= lineicon('shopping-bag', 'w-3.5 h-3.5 text-emerald-500') ?>
                         <span>Tokopedia URL</span>
                     </label>
                     <input type="text" id="link-tokped" name="tokopedia_link" value="<?= esc($product['tokopedia_link'] ?? '') ?>"
@@ -166,7 +166,7 @@ if (!empty($product['specs_json'])) {
                 </div>
                 <div>
                     <label class="lbl flex items-center gap-1.5" for="link-tiktok">
-                        <?= lucide_icon('video', 'w-3.5 h-3.5 text-rose-500') ?>
+                        <?= lineicon('video', 'w-3.5 h-3.5 text-rose-500') ?>
                         <span>TikTok Shop URL</span>
                     </label>
                     <input type="text" id="link-tiktok" name="tiktok_link" value="<?= esc($product['tiktok_link'] ?? '') ?>"
@@ -175,7 +175,7 @@ if (!empty($product['specs_json'])) {
                 </div>
                 <div>
                     <label class="lbl flex items-center gap-1.5" for="link-aff">
-                        <?= lucide_icon('link-2', 'w-3.5 h-3.5 text-sky-500') ?>
+                        <?= lineicon('link-2', 'w-3.5 h-3.5 text-sky-500') ?>
                         <span>Link Affiliate Eksternal</span>
                     </label>
                     <input type="text" id="link-aff" name="affiliate_link" value="<?= esc($product['affiliate_link'] ?? '') ?>"
@@ -252,7 +252,7 @@ if (!empty($product['specs_json'])) {
         <!-- Action Buttons -->
         <div class="flex items-center gap-3 pt-2">
             <button type="submit" class="btn-primary btn-sm px-6 gap-2">
-                <?= lucide_icon('save', 'w-4 h-4') ?>
+                <?= lineicon('save', 'w-4 h-4') ?>
                 <span><?= $isEdit ? 'Simpan Perubahan' : 'Simpan Produk' ?></span>
             </button>
             <a href="<?= site_url('admin/products') ?>" class="btn-outline btn-sm px-5">

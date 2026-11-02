@@ -111,6 +111,12 @@ class SettingsModel extends Model
                 'font_google_import' => $all['theme_font_google_import'] ?? 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap',
             ],
             'partners' => isset($all['partners_json']) ? (json_decode($all['partners_json'], true) ?: []) : [],
+            'analytics' => [
+                'ga4_id'              => $all['analytics_ga4_id'] ?? '',
+                'gsc_site'            => $all['analytics_gsc_site'] ?? '',
+                'site_verification'   => $all['analytics_site_verification'] ?? '',
+                'gsc_sa_path'         => $all['analytics_gsc_sa_path'] ?? '',
+            ],
         ];
     }
 }

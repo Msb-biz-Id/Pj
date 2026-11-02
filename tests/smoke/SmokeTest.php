@@ -196,6 +196,42 @@ final class SmokeTest extends CIUnitTestCase
         $this->assertStringContainsString('log-entries', $body, 'Kontainer entri log tidak ada');
     }
 
+    /** Analitik traffic & GSC: wajib login admin & merender metrik lokal + Google. */
+    public function testAdminTrafficPagesRequireAuthAndRender(): void
+    {
+        $this->get('/admin/traffic')->assertRedirect();
+        $this->get('/admin/traffic/search-console')->assertRedirect();
+
+        $r1 = $this->actingAsAdmin()->get('/admin/traffic');
+        $r1->assertOK();
+        $b1 = $r1->response()->getBody();
+        $this->assertStringContainsString('Analitik Traffic &amp; Konversi', $b1);
+        $this->assertStringContainsString('KLIK CTA PER KANAL', $b1);
+
+        $r2 = $this->actingAsAdmin()->get('/admin/traffic/search-console');
+        $r2->assertOK();
+        $b2 = $r2->response()->getBody();
+        $this->assertStringContainsString('Laporan Search Console', $b2);
+    }
+
+    /** Partial analytics: gtag & verification di-render saat dikonfigurasi. */
+    public function testAnalyticsPartialRendersWhenConfigured(): void
+    {
+        $mock = [
+            'analytics' => [
+                'ga4_id'            => 'G-TEST1234',
+                'site_verification' => 'VERIF-TEST-ABC',
+            ],
+        ];
+        $html = view('partials/analytics', ['settings' => $mock]);
+        $this->assertStringContainsString('googletagmanager.com/gtag/js?id=G-TEST1234', $html);
+        $this->assertStringContainsString('name="google-site-verification" content="VERIF-TEST-ABC"', $html);
+
+        $empty = view('partials/analytics', ['settings' => []]);
+        $this->assertStringNotContainsString('googletagmanager', $empty);
+        $this->assertStringNotContainsString('google-site-verification', $empty);
+    }
+
     public function testPartnerSliderShowsOnHomeAndAbout(): void
     {
         $home = $this->getPage('/');

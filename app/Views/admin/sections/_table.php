@@ -12,7 +12,7 @@ $sectionLabels = [
             <div data-id="<?= $sec['id'] ?>" class="card p-4 sm:p-5 flex items-center justify-between transition-colors hover:border-ink/30 select-none">
                 <div class="flex items-center space-x-4">
                     <span class="cursor-grab text-faint hover:text-ink transition-colors p-1" title="Tarik untuk memindahkan urutan">
-                        <?= lucide_icon('grip-vertical', 'w-5 h-5') ?>
+                        <?= lineicon('grip-vertical', 'w-5 h-5') ?>
                     </span>
                     <span class="w-8 h-8 rounded-[8px] bg-[var(--color-surface-alt)] text-ink font-mono font-bold flex items-center justify-center text-xs border border-line">
                         <?= $sec['sort_order'] ?>
@@ -33,7 +33,7 @@ $sectionLabels = [
                             hx-swap="outerHTML" 
                             hx-select="unset"
                             class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold transition-colors <?= $sec['is_active'] ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/30' : 'bg-[var(--color-surface-alt)] text-faint border border-line' ?>">
-                        <?= lucide_icon($sec['is_active'] ? 'eye' : 'eye-off', 'w-3.5 h-3.5') ?>
+                        <?= lineicon($sec['is_active'] ? 'eye' : 'eye-off', 'w-3.5 h-3.5') ?>
                         <span><?= $sec['is_active'] ? 'TAMPIL' : 'SEMBUNYI' ?></span>
                     </button>
                 </div>

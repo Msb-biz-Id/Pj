@@ -15,14 +15,14 @@
             </h1>
         </div>
         <a href="<?= site_url('admin/services') ?>" class="btn-outline btn-sm gap-1.5 text-xs">
-            <?= lucide_icon('arrow-left', 'w-3.5 h-3.5') ?>
+            <?= lineicon('arrow-left', 'w-3.5 h-3.5') ?>
             <span>Kembali</span>
         </a>
     </div>
 
     <?php if (session()->getFlashdata('error')): ?>
         <div class="p-4 bg-rose-500/10 border border-rose-500/30 text-rose-400 rounded-[12px] text-xs flex items-center gap-2.5">
-            <?= lucide_icon('alert-circle', 'w-4 h-4 shrink-0') ?>
+            <?= lineicon('alert-circle', 'w-4 h-4 shrink-0') ?>
             <span><?= esc(session()->getFlashdata('error')) ?></span>
         </div>
     <?php endif; ?>
@@ -165,7 +165,7 @@
         <!-- Action Buttons -->
         <div class="flex items-center gap-3 pt-2">
             <button type="submit" class="btn-primary btn-sm px-6 gap-2">
-                <?= lucide_icon('save', 'w-4 h-4') ?>
+                <?= lineicon('save', 'w-4 h-4') ?>
                 <span><?= $isEdit ? 'Simpan Perubahan' : 'Simpan Layanan' ?></span>
             </button>
             <a href="<?= site_url('admin/services') ?>" class="btn-outline btn-sm px-5">
